@@ -6,9 +6,20 @@ $(document).ready(function() {
     // $("#slider ul li:nth-child(2)").hide();
     // $("#slider ul li:nth-child(3)").hide();
     
+    // setInterval(function(){
+    //     $("#slider ul li:first-of-type").fadeOut();
+    //     $("#slider ul li:nth-child(2)").fadeIn();
+    //     $("#slider ul").append($("#slider ul li:first-of-type"));
+    // }, 2000);
+
+    // method 체인
     setInterval(function(){
-        $("#slider ul li:first-of-type").fadeOut();
-        $("#slider ul li:nth-child(2)").fadeIn();
-        $("#slider ul").append($("#slider ul li:first-of-type"));
-    }, 2000);
+        $('#slider ul li:first-of-type')
+        .fadeOut(2000)
+        .next()
+        .fadeIn(1000)
+        .end()
+        .appendTo($('#slider ul'));
+    },3000);
+
 });
